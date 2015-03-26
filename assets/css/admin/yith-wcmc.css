@@ -1,0 +1,182 @@
+/**
+ * General admin style
+ *
+ * @author  Your Inspiration Themes
+ * @package YITH WooCommerce Mailchimp
+ * @version 1.0.0
+ */
+
+/* === INTEGRATION STATUS === */
+.yith_wcmc_integration_status .account-banner{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 30px;
+    position: relative;
+}
+
+.yith_wcmc_integration_status .account-banner:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.yith_wcmc_integration_status .account-banner .account-avatar{
+    text-align: center;
+    width: 20%;
+    float: left;
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.yith_wcmc_integration_status .account-banner .account-avatar .account-thumb{
+    border: 5px solid #eee;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.yith_wcmc_integration_status .account-banner .account-avatar .account-name{
+    font-weight: 700;
+}
+
+.yith_wcmc_integration_status .account-banner .account-details{
+    float: right;
+    width: 80%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.yith_wcmc_integration_status .account-banner .account-details p{
+    margin-bottom: 10px;
+}
+
+.yith_wcmc_integration_status .account-banner .account-details p .label{
+    margin-right: 10px;
+}
+
+.yith_wcmc_integration_status mark {
+    display: inline-block;
+    text-indent: -9999px;
+    position: relative;
+    height: 1em;
+    width: 1em;
+    background: 0 0;
+    font-size: 1.4em;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+.yith_wcmc_integration_status mark.cancelled:after, .yith_wcmc_integration_status mark.completed:after {
+    font-family: WooCommerce;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    text-indent: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.yith_wcmc_integration_status mark.completed:after {
+    content: "\e015";
+    color: #73a724;
+}
+
+.yith_wcmc_integration_status mark.cancelled:after {
+    content: "\e013";
+    color: #a00;
+}
+
+/* === LIST UPDATER === */
+
+a.ajax-mailchimp-updater{
+    vertical-align: middle!important;
+    margin: 0 5px!important;
+}
+
+.select2-container.select2-container-multi{
+    display: inline-block!important;
+}
+
+/* === ADVANCED OPTIONS === */
+.advanced-integration-header{
+    border-top: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.advanced-integration-header a{
+    vertical-align: middle!important;
+}
+
+.advanced-integration-header span{
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.advanced-integration-content .advanced-panel-item{
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.advanced-integration-content .panel-item-handle{
+    padding: 10px 0;
+}
+
+.advanced-integration-content .panel-item-handle:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.advanced-integration-content .panel-item-handle h3{
+    border: none!important;
+    margin: 0!important;
+    padding: 0!important;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.advanced-integration-content .advanced-panel-item.opened .panel-item-handle{
+    border-bottom: 1px solid #eee;
+}
+
+.advanced-integration-content .panel-item-handle a{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    text-indent: -999999px;
+    opacity: 0.6;
+}
+
+.advanced-integration-content .panel-item-handle a:hover{
+    opacity: 1;
+}
+
+.advanced-integration-content .panel-item-handle a.remove-button{
+    background: url( '../../images/remove.png' ) no-repeat center center;
+}
+
+.advanced-integration-content .panel-item-handle a.collapse-button{
+    background: url( '../../images/arrow.png' ) no-repeat center center;
+}
+
+.advanced-integration-content .advanced-panel-item.opened .panel-item-handle a.collapse-button{
+    -webkit-transform: rotate( 180deg );
+}
+
+.advanced-integration-content .panel-item-content{
+    padding: 20px 10px;
+}
+
+.advanced-integration-content .panel-item-content h4{
+    margin: 0 0 15px!important;
+}

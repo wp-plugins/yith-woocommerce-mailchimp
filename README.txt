@@ -28,6 +28,8 @@ Get perfect integration of MailChimp into your e-commerce. An opportunity to let
 2. Upload the plugin folder into the `wp-content/plugins/` directory of your WordPress site.
 3. Activate `YITH WooCommerce Mailchimp` from Plugins page
 
+YITH WooCommerce Authorize.net Payment Gateway will add a new submenu called "Mailchimp" under "YIT Plugins" menu. Here you are able to configure all the plugin settings.
+
 == Frequently Asked Questions ==
 
 = Where can I find my API key =

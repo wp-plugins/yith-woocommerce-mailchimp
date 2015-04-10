@@ -8,31 +8,19 @@ Stable tag: 2.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Get perfect integration of MailChimp into your e-commerce.
+Integrate MailChimp into your e-commerce shop to manage users' subscription directly from your store.
 WooCommerce 2.3.x compatible.
 
 
 == Description ==
 
-Get perfect integration of MailChimp into your e-commerce. An opportunity to let you benefit from all advantages that an email marketing service provider offers, so that you can manage contacts from your shop in an easy and almost automatic way and create specific campaigns for your target customers. The more targeted and specifically campaigns are conceived, the higher is conversion rate of your email campaign. With YITH WooCommerce MailChimp you'll get all this directly in your e-commerce.
+Get perfect integration of MailChimp into your e-commerce. An opportunity to let you benefit from all advantages that an email marketing service provider offers, so that you can manage contacts from your shop in an easy and almost automatic way and create specific campaigns for your target customers. The more targeted and specific campaigns are conceived, the higher is conversion rate of your email campaign. With YITH WooCommerce MailChimp you can manage users’ subscriptions directly from your e-commerce.
 
 = Features: =
 
-* Automatic customers' subscription to a specific list in MailChimp after order creation or completion.
-* Subscription can be either automatic or ask for customer's consent in checkout page.
-* User's subscription when order is created.
-* User's subscription when order is completed.
-
-= Support =
-
-Hi there, we have good news here: all our plugins are released for free. Wow!
-Already knew it, right?! Great, but maybe you do not know that: if you're looking for how to install the plugins or how to use them within your Wordpress installations, which is the right way to ask support?
-That's the way:
-
-* Register on http://yithemes.com
-* Go to Support > Get Support
-
-Here we provide support, not on wordpress.org were, usually we do not read topics. It's better to follow us or write on our forum!
+* Customers' subscription to a specific list in MailChimp:
+* Subscription can be either automatic or require customer's consent in checkout page.
+* Subscription can be either made when order is placed or when order is completed.
 
 == Installation ==
 

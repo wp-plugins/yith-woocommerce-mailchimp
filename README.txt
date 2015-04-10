@@ -34,7 +34,7 @@ YITH WooCommerce Authorize.net Payment Gateway will add a new submenu called "Ma
 
 = Where can I find my API key =
 
-You just have to register on mailchimp.com and visit the following page: http://localhost/yi-network-2/woo-mailchimp/wp-admin/admin.mailchimp.com/account/api/
+You just have to register on mailchimp.com and visit the following [page](http://admin.mailchimp.com/account/api/ "Account page")
 
 = Is it possible to subscribe users automatically? =
 

@@ -1,7 +1,7 @@
 === YITH WooCommerce Mailchimp ===
 
 Contributors: yithemes
-Tags: mailchimp, woocommerce, checkout, themes, yit, e-commerce, shop, newsletter, subscription
+Tags: mailchimp, woocommerce, checkout, themes, yit, e-commerce, shop, newsletter, subscribe, subscription, marketing, signup, order, email, mailchimp for wordpress, mailchimp for wp, mailchimp signup, mailchimp subscribe, newsletter, newsletter subscribe, newsletter checkbox, double optin
 Requires at least: 3.5.1
 Tested up to: 4.1.1
 Stable tag: 2.0.5

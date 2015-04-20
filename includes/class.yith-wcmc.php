@@ -330,7 +330,9 @@ if ( ! class_exists( 'YITH_WCMC' ) ) {
 
 			$template_name = 'mailchimp-subscription-checkbox.php';
 			$located = locate_template( array(
+				trailingslashit( WC()->template_path() ) . 'wcmc/' . $template_name,
 				trailingslashit( WC()->template_path() ) . $template_name,
+				'wcmc/' . $template_name,
 				$template_name
 			) );
 

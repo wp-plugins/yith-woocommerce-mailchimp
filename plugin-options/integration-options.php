@@ -14,7 +14,7 @@ if ( ! defined( 'YITH_WCMC' ) ) {
 return apply_filters( 'yith_wcmc_integration_options', array(
 	'integration' => array(
 		'mailchimp-video-box' =>  array(
-			'name'    => __( 'Upgrade to the PREMIUM VERSION', 'yit' ),
+			'name'    => __( 'Upgrade to the PREMIUM VERSION', 'yith-wcmc' ),
 			'type'    => 'videobox',
 			'default' => array(
 				'plugin_name'               => __( 'YITH WooCommerce Mailchimp', 'yith-wcmc' ),

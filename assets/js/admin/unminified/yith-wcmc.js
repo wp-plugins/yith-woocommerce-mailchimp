@@ -7,15 +7,14 @@
  */
 
 jQuery( document ).ready( function( $ ){
-    var list_select = $( '#yith_wcmc_mailchimp_list'),
-        group_select = $( '#yith_wcmc_mailchimp_groups');
+    var list_select = $( '#yith_wcmc_mailchimp_list, #yith_wcmc_shortcode_mailchimp_list, #yith_wcmc_widget_mailchimp_list, #yith_wcmc_export_list'),
+        group_select = $( '#yith_wcmc_mailchimp_groups, #yith_wcmc_shortcode_mailchimp_groups, #yith_wcmc_widget_mailchimp_groups');
 
     // add updater button
     list_select.after( $( '<a>').addClass( 'button button-secondary ajax-mailchimp-updater ajax-mailchimp-updater-list').attr( 'id', 'yith_wmcm_mailchimp_list_updater').attr( 'href', '#').text( yith_wcmc.labels.update_list_button ));
     group_select.after( $( '<a>').addClass( 'button button-secondary ajax-mailchimp-updater ajax-mailchimp-updater-group').attr( 'id', 'yith_wcmc_mailchimp_group_updater').attr( 'href', '#').text( yith_wcmc.labels.update_group_button ));
 
     var handle_lists = function( ev ){
-            console.log( 'handle_list' );
             var t = $(this),
                 list = t.prev( 'select'),
                 selected_option = list.find( 'option:selected' ).val();
@@ -73,8 +72,8 @@ jQuery( document ).ready( function( $ ){
         },
         handle_groups = function( ev ){
             var t = $( this).hasClass( 'ajax-mailchimp-updater-group' ) ? $(this).prev( 'select' ) : $(this).parents('tr').next().find('select'),
-                row = t.parents( 'td'),
-                list_id = t.parents('tr').prev().find('select').find( 'option:selected' ).val(),
+                row = t.closest( 'td'),
+                list_id = t.closest('tr').prev().find('select').find( 'option:selected' ).val(),
                 selected_options_dom = t.find( 'option:selected'),
                 selected_options = [];
 
@@ -173,11 +172,12 @@ jQuery( document ).ready( function( $ ){
         if( t.val() != 'never' ){
             subscription_checkbox.parents( 'tr' ).show();
             double_optin.parents( 'tr').show();
+            $( '#yith_wcmc_email_type').parents( 'tr').show();
             $( '#yith_wcmc_subscription_checkbox_label' ).parents( 'tr' ).show();
             $( '#yith_wcmc_subscription_checkbox_position' ).parents( 'tr' ).show();
             $( '#yith_wcmc_subscription_checkbox_default' ).parents( 'tr' ).show();
-            $( '#yith_wcmc_mailchimp_list').parents( 'tr').show();
             $( '#yith_wcmc_update_existing').parents( 'tr').show();
+            $( '#yith_wcmc_replace_interests').parents( 'tr').show();
             $( '#yith_wcmc_send_welcome').parents( 'tr').show();
 
             subscription_checkbox.change();
@@ -186,17 +186,33 @@ jQuery( document ).ready( function( $ ){
         else{
             subscription_checkbox.parents( 'tr' ).hide();
             double_optin.parents( 'tr').hide();
+            $( '#yith_wcmc_email_type').parents( 'tr').hide();
             $( '#yith_wcmc_subscription_checkbox_label' ).parents( 'tr' ).hide();
             $( '#yith_wcmc_subscription_checkbox_position' ).parents( 'tr' ).hide();
             $( '#yith_wcmc_subscription_checkbox_default' ).parents( 'tr' ).hide();
-            $( '#yith_wcmc_mailchimp_list').parents( 'tr').hide();
             $( '#yith_wcmc_update_existing').parents( 'tr').hide();
+            $( '#yith_wcmc_replace_interests').parents( 'tr').hide();
             $( '#yith_wcmc_send_welcome').parents( 'tr').hide();
+        }
+    }).change();
+    $( '#yith_wcmc_ecommerce360_enable').on( 'change', function(){
+        var t = $(this),
+            cookie_lifetime = $( '#yith_wcmc_ecommerce360_cookie_lifetime');
+
+        if( t.is(':checked') ){
+            cookie_lifetime.parents( 'tr').show();
+        }
+        else{
+            cookie_lifetime.parents( 'tr').hide();
         }
     }).change();
 
     $( '#yith_wcmc_subscription_checkbox' ).on( 'change', function(){
         var t = $(this);
+
+        if( ! t.is(':visible') ){
+            return;
+        }
 
         if( t.is( ':checked' ) ){
             $( '#yith_wcmc_subscription_checkbox_label' ).parents( 'tr' ).show();
@@ -212,11 +228,43 @@ jQuery( document ).ready( function( $ ){
     $( '#yith_wcmc_double_optin').on( 'change', function(){
         var t = $(this);
 
+        if( ! t.is(':visible') ){
+            return;
+        }
+
         if( t.is( ':checked' ) ) {
             $( '#yith_wcmc_send_welcome').parents( 'tr').hide();
         }
         else{
             $( '#yith_wcmc_send_welcome').parents( 'tr').show();
+        }
+    }).change();
+    $( '#yith_wcmc_shortcode_double_optin').on( 'change', function(){
+        var t = $(this);
+
+        if( ! t.is(':visible') ){
+            return;
+        }
+
+        if( t.is( ':checked' ) ) {
+            $( '#yith_wcmc_shortcode_send_welcome').parents( 'tr').hide();
+        }
+        else{
+            $( '#yith_wcmc_shortcode_send_welcome').parents( 'tr').show();
+        }
+    }).change();
+    $( '#yith_wcmc_widget_double_optin').on( 'change', function(){
+        var t = $(this);
+
+        if( ! t.is(':visible') ){
+            return;
+        }
+
+        if( t.is( ':checked' ) ) {
+            $( '#yith_wcmc_widget_send_welcome').parents( 'tr').hide();
+        }
+        else{
+            $( '#yith_wcmc_widget_send_welcome').parents( 'tr').show();
         }
     }).change();
 } );

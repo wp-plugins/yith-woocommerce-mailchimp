@@ -34,6 +34,8 @@
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 10px;
+    height: 96px;
+    width: 96px;
 }
 
 .yith_wcmc_integration_status .account-banner .account-avatar .account-name{
@@ -94,89 +96,158 @@
     color: #a00;
 }
 
-/* === LIST UPDATER === */
-
-a.ajax-mailchimp-updater{
-    vertical-align: middle!important;
-    margin: 0 5px!important;
-}
-
-.select2-container.select2-container-multi{
-    display: inline-block!important;
-}
-
-/* === ADVANCED OPTIONS === */
-.advanced-integration-header{
-    border-top: 1px solid #eee;
-    padding: 15px 0;
-}
-
-.advanced-integration-header a{
-    vertical-align: middle!important;
-}
-
-.advanced-integration-header span{
-    vertical-align: middle;
-    margin-left: 15px;
-}
-
-.advanced-integration-content .advanced-panel-item{
-    border: 1px solid #eee;
-    border-radius: 5px;
-    padding: 20px;
-}
-
-.advanced-integration-content .panel-item-handle{
-    padding: 10px 0;
-}
-
-.advanced-integration-content .panel-item-handle:after{
+/* === DASHBOARD WIDGET === */
+#yith_wcmc_dashboard_widget .inside:after{
     content: '';
     display: block;
     clear: both;
 }
 
-.advanced-integration-content .panel-item-handle h3{
-    border: none!important;
-    margin: 0!important;
-    padding: 0!important;
+#yith_wcmc_dashboard_widget .yith_wcmc_integration_status .account-banner{
+    padding: 20px;
+}
+
+#yith_wcmc_dashboard_widget .yith_wcmc_integration_status .account-banner .account-avatar{
+    width: 25%;
+    border: none;
+}
+
+#yith_wcmc_dashboard_widget .yith_wcmc_integration_status .account-banner .account-avatar .account-thumb{
+    width: 66px;
+    height: 66px;
+}
+
+#yith_wcmc_dashboard_widget .yith_wcmc_integration_status .account-banner .account-details{
+    width: 75%;
+    padding: 10px;
+}
+
+#yith_wcmc_dashboard_widget .yith_wcmc_integration_status .account-banner .account-details p:first-child{
+    margin-top: 0;
+}
+
+#yith_wcmc_dashboard_widget .list-stat-container{
+    position: relative;
+}
+
+#yith_wcmc_dashboard_widget .carousel_controls{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+}
+
+#yith_wcmc_dashboard_widget .carousel_controls a{
     display: inline-block;
+    text-indent: -9999px;
+    position: relative;
+    width: 1.4em;
+    height: 1.4em;
+}
+
+#yith_wcmc_dashboard_widget .carousel_controls a:before{
+    font-family: WooCommerce;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    text-indent: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #ebebeb;
+    font-size: 1.4em;
+    background: #fff;
+    border-radius: 50%;
+}
+
+#yith_wcmc_dashboard_widget .carousel_controls a:focus,
+#yith_wcmc_dashboard_widget .carousel_controls a:active{
+    box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    -moz-box-shadow: none!important;
+}
+
+#yith_wcmc_dashboard_widget .carousel_controls a:hover:before{
+    color: #aaa;
+}
+
+#yith_wcmc_dashboard_widget .carousel_controls a.prev:before{
+    content: '\e00b';
+}
+
+#yith_wcmc_dashboard_widget .carousel_controls a.next:before{
+    content: '\e008';
+}
+
+#yith_wcmc_dashboard_widget .yith_wcmc_list_stats{
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#yith_wcmc_dashboard_widget .yith_wcmc_list_stats .list-stat{
+    padding: 10px;
+}
+
+#yith_wcmc_dashboard_widget .yith_wcmc_list_stats .list-stat h3 {
+    padding: 5px 0;
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 10px;
+}
+
+#yith_wcmc_dashboard_widget .yith_wcmc_list_stats .list-stat table {
+    width: 100%;
+}
+
+#yith_wcmc_dashboard_widget .yith_wcmc_list_stats .list-stat th,
+#yith_wcmc_dashboard_widget .yith_wcmc_list_stats .list-stat td {
+    border-bottom: 1px dashed #ebebeb;
+    padding-bottom: 5px;
+}
+
+#yith_wcmc_dashboard_widget .yith_wcmc_list_stats .list-stat tr:last-child th,
+#yith_wcmc_dashboard_widget .yith_wcmc_list_stats .list-stat tr:last-child td{
+    border: none;
+}
+
+#yith_wcmc_dashboard_widget .yith_wcmc_list_stats .list-stat table th {
+    text-align: left;
+}
+
+#yith_wcmc_dashboard_widget .refresh-list-stats{
+    margin-top: 10px;
+    float: right;
+}
+
+#yith_wcmc_dashboard_widget .refresh-list-stats:before{
+    font-family: WooCommerce;
+    font-weight: 400;
+    content: '\e031';
     vertical-align: middle;
-}
-
-.advanced-integration-content .advanced-panel-item.opened .panel-item-handle{
-    border-bottom: 1px solid #eee;
-}
-
-.advanced-integration-content .panel-item-handle a{
-    width: 30px;
-    height: 30px;
     display: inline-block;
-    vertical-align: middle;
-    text-indent: -999999px;
-    opacity: 0.6;
+    margin-right: 5px;
 }
 
-.advanced-integration-content .panel-item-handle a:hover{
-    opacity: 1;
+/* === LIST UPDATER === */
+
+a.ajax-mailchimp-updater-list,
+a.ajax-mailchimp-updater-group,
+a.update-fields{
+    vertical-align: middle!important;
+    margin: 0 5px!important;
 }
 
-.advanced-integration-content .panel-item-handle a.remove-button{
-    background: url( '../../images/remove.png' ) no-repeat center center;
+.select2-container.chosen_select,
+.select2-container.select2-container-multi{
+    display: inline-block!important;
 }
 
-.advanced-integration-content .panel-item-handle a.collapse-button{
-    background: url( '../../images/arrow.png' ) no-repeat center center;
-}
-
-.advanced-integration-content .advanced-panel-item.opened .panel-item-handle a.collapse-button{
-    -webkit-transform: rotate( 180deg );
-}
-
-.advanced-integration-content .panel-item-content{
-    padding: 20px 10px;
-}
-
-.advanced-integration-content .panel-item-content h4{
-    margin: 0 0 15px!important;
+#yith_wcmc_panel_export input[type="submit"]:not(.visible){
+    display: none;
 }

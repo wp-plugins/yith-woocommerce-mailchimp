@@ -14,7 +14,7 @@
 						endif;
 					?>
 				</div>
-				<div class="account-name tips" data-tip="<?php echo ! empty( $username ) ? __( 'Mailchimp user', 'yith-wcmc' ) : __( 'No user can be found with this API key', 'yith-wcmc' )?>">
+				<div class="account-name tips" data-tip="<?php echo ! empty( $username ) ? __( 'MailChimp user', 'yith-wcmc' ) : __( 'No user can be found with this API key', 'yith-wcmc' )?>">
 					<?php echo ! empty( $username ) ? $username : __( '&lt; Not Found &gt;' ); ?>
 				</div>
 			</div>

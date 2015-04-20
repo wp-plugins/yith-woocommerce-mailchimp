@@ -2,8 +2,8 @@
 /**
  * Plugin Name: YITH WooCommerce Mailchimp
  * Plugin URI: http://yithemes.com/themes/plugins/yith-woocommerce-mailchimp/
- * Description: Get perfect integration of MailChimp into your e-commerce.
- * Version: 1.0.0
+ * Description: YITH WooCommerce Mailchimp allows you to integrate the most popular newsletter campaign manager on your ecommerce.
+ * Version: 1.0.1
  * Author: Yithemes
  * Author URI: http://yithemes.com/
  * Text Domain: yith-wcmc
@@ -70,6 +70,9 @@ if( ! function_exists( 'yith_mailchimp_constructor' ) ) {
 		require_once( YITH_WCMC_INC . 'mailchimp/Mailchimp.php' );
 		require_once( YITH_WCMC_INC . 'class.yith-wcmc.php' );
 
+		// Let's start the game
+		YITH_WCMC();
+
 		if( is_admin() ){
 			require_once( YITH_WCMC_INC . 'class.yith-wcmc-admin.php' );
 
@@ -104,7 +107,7 @@ if( ! function_exists( 'yith_wcmc_install_woocommerce_admin_notice' ) ) {
 	function yith_wcmc_install_woocommerce_admin_notice() {
 		?>
 		<div class="error">
-			<p><?php _e( 'YITH WooCommerce Mailchimp is enabled but not effective. It requires WooCommerce in order to work.', 'yith-wcmc' ); ?></p>
+			<p><?php _e( 'YITH WooCommerce MailChimp is enabled but not effective. It requires WooCommerce in order to work.', 'yith-wcmc' ); ?></p>
 		</div>
 	<?php
 	}
@@ -114,7 +117,7 @@ if( ! function_exists( 'yith_wcmc_install_free_admin_notice' ) ){
 	function yith_wcmc_install_free_admin_notice() {
 		?>
 		<div class="error">
-			<p><?php _e( 'You can\'t activate the free version of YITH WooCommerce Mailchimp while you are using the premium one.', 'yith-wcmc' ); ?></p>
+			<p><?php _e( 'You can\'t activate the free version of YITH WooCommerce MailChimp while you are using the premium one.', 'yith-wcmc' ); ?></p>
 		</div>
 	<?php
 	}

@@ -171,6 +171,38 @@ if ( ! class_exists( 'YITH_WCMC' ) ) {
 		}
 
 		/**
+		 * Retrieve merge fields for passed list
+		 *
+		 * @param string $list Id of the list, used to retrieve groups
+		 *
+		 * @return array Array of available merge vars, formatted as tag -> name format
+		 * @since 1.0.0
+		 */
+		public function retrieve_fields( $list ) {
+			$fields = array();
+
+			if( ! empty( $list ) ){
+				$response = $this->do_request( 'lists/merge-vars', array( 'id' => array( $list ) ) );
+
+				if( ! empty( $response['data'] ) ){
+					$merge_fields_array = $response['data'];
+
+					foreach( $merge_fields_array as $merge_fields ){
+						if( ! empty( $merge_fields['merge_vars'] ) ){
+							$merge_fields = $merge_fields['merge_vars'];
+
+							foreach( $merge_fields as $field ){
+								$fields[ $field['tag'] ] = $field['name'];
+							}
+						}
+					}
+				}
+			}
+
+			return $fields;
+		}
+
+		/**
 		 * Send a request to mailchimp servers
 		 *
 		 * @param $request string API handle to call (e.g. 'lists/list')
@@ -221,7 +253,7 @@ if ( ! class_exists( 'YITH_WCMC' ) ) {
 		public function do_request_via_ajax() {
 			// return if not ajax request
 			if( ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ){
-				return false;
+				wp_send_json( false );
 			}
 
 			// retrieve params for the request
@@ -231,12 +263,12 @@ if ( ! class_exists( 'YITH_WCMC' ) ) {
 
 			// return if required params are missing
 			if( empty( $request ) || empty( $_REQUEST['yith_wcmc_ajax_request_nonce'] ) ){
-				return false;
+				wp_send_json( false );
 			}
 
 			// return if non check fails
 			if( ! wp_verify_nonce( $_REQUEST['yith_wcmc_ajax_request_nonce'], 'yith_wcmc_ajax_request' ) ){
-				return false;
+				wp_send_json( false );
 			}
 
 			// do request
@@ -309,7 +341,7 @@ if ( ! class_exists( 'YITH_WCMC' ) ) {
 			include_once( $located );
 		}
 
-		/* === HANDLES LIST SUBSCRIPTION === */
+		/* === HANDLES ORDER SUBSCRIPTION === */
 
 		/**
 		 * Adds metas to order post, saving mailchimp informations
@@ -350,7 +382,7 @@ if ( ! class_exists( 'YITH_WCMC' ) ) {
 				return false;
 			}
 
-			return $this->_subscribe( $order_id );
+			return $this->order_subscribe( $order_id );
 		}
 
 		/**
@@ -376,7 +408,7 @@ if ( ! class_exists( 'YITH_WCMC' ) ) {
 				return false;
 			}
 
-			return $this->_subscribe( $order_id );
+			return $this->order_subscribe( $order_id );
 		}
 
 		/**
@@ -386,7 +418,7 @@ if ( ! class_exists( 'YITH_WCMC' ) ) {
 		 *
 		 * @return bool status of the operation
 		 */
-		protected function _subscribe( $order_id ){
+		public function order_subscribe( $order_id, $args = array() ){
 			$order = wc_get_order( $order_id );
 
 			$list_id = get_option( 'yith_wcmc_mailchimp_list' );
@@ -399,27 +431,31 @@ if ( ! class_exists( 'YITH_WCMC' ) ) {
 				return false;
 			}
 
-			$args = array(
+			$args = array_merge( array(
 				'id' => $list_id,
 				'email' => array(
 					'email' => $order->billing_email
 				),
-				'merge_vars' => array(
+				'merge_vars' => apply_filters( 'yith_wcmc_subscribe_merge_vars', array(
 					'FNAME' => $order->billing_first_name,
 					'LNAME' => $order->billing_last_name
-				),
+				) ),
 				'email_type' => $email_type,
 				'double_optin' => $double_optin,
 				'update_existing' => $update_existing,
 				'send_welcome' => $send_welcome
-			);
+			), $args );
 
-			$res = $this->do_request( 'lists/subscribe', $args );
+			do_action( 'yith_wcmc_user_subscribing', $order_id );
+
+			$res = $this->do_request( 'lists/subscribe', apply_filters( 'yith_wcmc_subscribe_args', $args ) );
 
 			if( isset( $res['status'] ) && ! $res['status'] ){
 				$order->add_order_note( sprintf( __( 'MAILCHIMP ERROR: (%s) %s', 'yith-wcmc' ), $res['code'], $res['message'] ) );
-				return false;
+				return $res;
 			}
+
+			do_action( 'yith_wcmc_user_subscribed', $order_id );
 
 			return $res;
 		}
@@ -435,6 +471,3 @@ if ( ! class_exists( 'YITH_WCMC' ) ) {
 function YITH_WCMC(){
 	return YITH_WCMC::get_instance();
 }
-
-// Let's start the game
-YITH_WCMC();

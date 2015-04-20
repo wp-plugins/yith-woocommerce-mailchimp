@@ -44,6 +44,14 @@ if ( ! class_exists( 'YITH_WCMC_Admin' ) ) {
 		public $premium_landing_url = 'http://yithemes.com/themes/plugins/yith-woocommerce-mailchimp/';
 
 		/**
+		 * Documentation url
+		 *
+		 * @var string
+		 * @since 1.0.0
+		 */
+		public $doc_url = 'http://yithemes.com/docs-plugins/yith-woocommerce-mailchimp/';
+
+		/**
 		 * Returns single instance of the class
 		 *
 		 * @return \YITH_WCMC_Admin
@@ -69,15 +77,21 @@ if ( ! class_exists( 'YITH_WCMC_Admin' ) ) {
 		public function __construct() {
 			$this->available_tabs = apply_filters( 'yith_wcmc_available_admin_tabs', array(
 				'integration' => __( 'Integration', 'yith-wcmc' ),
-				'checkout' => __( 'Checkout', 'yith-wcmc' )
+				'checkout' => __( 'Checkout', 'yith-wcmc' ),
+				'premium' => __( 'Premium Version', 'yith-wcmc' )
 			) );
 
-			// register wishlist panel
+			// register mailchimp panel
 			add_action( 'admin_menu', array( $this, 'register_panel' ), 5 );
 			add_action( 'woocommerce_admin_field_yith_wcmc_integration_status', array( $this, 'print_custom_yith_wcmc_integration_status' ) );
+			add_action( 'yith_wcmc_premium_tab', array( $this, 'print_premium_tab' ) );
+
+			// handle licence changing
+			add_action( 'update_option_yith_wcmc_mailchimp_api_key', array( $this, 'delete_old_key_options' ), 10, 2 );
 
 			// register plugin actions and row meta
 			add_filter( 'plugin_action_links_' . plugin_basename( YITH_WCMC_DIR . 'init.php' ), array( $this, 'action_links' ) );
+			add_filter( 'plugin_row_meta', array( $this, 'add_plugin_meta' ), 10, 2 );
 
 			// enqueue style
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
@@ -171,6 +185,20 @@ if ( ! class_exists( 'YITH_WCMC_Admin' ) ) {
 		}
 
 		/**
+		 * Prints tab premium of the plugin
+		 *
+		 * @return void
+		 * @since 1.0.0
+		 */
+		public function print_premium_tab() {
+			$premium_tab = YITH_WCMC_DIR . 'templates/admin/mailchimp-panel-premium.php';
+
+			if( file_exists( $premium_tab ) ){
+				include( $premium_tab );
+			}
+		}
+
+		/**
 		 * Register plugins action links
 		 *
 		 * @param array $links Array of current links
@@ -183,13 +211,41 @@ if ( ! class_exists( 'YITH_WCMC_Admin' ) ) {
 				'<a href="' . admin_url( 'admin.php?page=yith_wcmc_panel&tab=integration' ) . '">' . __( 'Settings', 'yith-wcmc' ) . '</a>'
 			);
 
-			/*
 			if( ! defined( 'YITH_WCMC_PREMIUM_INIT' ) ){
-				$plugin_links[] = '<a target="_blank" href="' . $this->get_premium_landing_uri() . '">' . __( 'Premium Version', 'yit' ) . '</a>';
+				$plugin_links[] = '<a target="_blank" href="' . $this->get_premium_landing_uri() . '">' . __( 'Premium Version', 'yith-wcmc' ) . '</a>';
 			}
-			*/
 
 			return array_merge( $links, $plugin_links );
+		}
+
+		/**
+		 * Adds plugin row meta
+		 *
+		 * @param $plugin_meta array
+		 * @param $plugin_file string
+		 *
+		 * @return array
+		 * @since 1.0.0
+		 */
+		public function add_plugin_meta( $plugin_meta, $plugin_file ){
+			// documentation link
+			$plugin_meta['documentation'] = '<a target="_blank" href="' . $this->doc_url . '">' . __( 'Plugin Documentation', 'yit' ) . '</a>';
+
+			return $plugin_meta;
+		}
+
+		/**
+		 * Delete options specific to an API Key
+		 *
+		 * @param $old_value string Old key value
+		 * @param $value string New key value
+		 *
+		 * @return void
+		 * @since 1.0.0
+		 */
+		public function delete_old_key_options( $old_value, $value ) {
+			delete_transient( 'yith_wcmc_' . md5( $old_value ) );
+			delete_option( 'yith_wcmc_mailchimp_list' );
 		}
 	}
 }

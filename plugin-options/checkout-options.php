@@ -27,7 +27,7 @@ return apply_filters( 'yith_wcmc_checkout_options', array(
 		'checkout-trigger' => array(
 			'title' => __( 'Register after', 'yith-wcmc' ),
 			'type' => 'select',
-			'desc' => __( 'Select when the user should be subscribed to the list', 'yith-wcmc' ),
+			'desc' => __( 'Select when the user should be added to the list', 'yith-wcmc' ),
 			'id' => 'yith_wcmc_checkout_trigger',
 			'options' => array(
 				'never' => __( 'Never', 'yith-wcmc' ),
@@ -41,7 +41,7 @@ return apply_filters( 'yith_wcmc_checkout_options', array(
 			'title' => __( 'Show "Newsletter subscription" checkbox', 'yith-wcmc' ),
 			'type' => 'checkbox',
 			'id' => 'yith_wcmc_subscription_checkbox',
-			'desc' => __( 'When you select this option, a checkbox will be added to the checkout form, inviting users to subscribe to the newsletter; otherwise users will be subscribed automatically', 'yith-wcmc' ),
+			'desc' => __( 'When you select this option, a checkbox will be added to the checkout form, inviting users to subscribe to the newsletter; otherwise, users will be subscribed automatically', 'yith-wcmc' ),
 			'default' => ''
 		),
 
@@ -50,21 +50,21 @@ return apply_filters( 'yith_wcmc_checkout_options', array(
 			'type' => 'text',
 			'desc' => __( 'Enter here the label you want to use for the "Newsletter subscription" checkbox', 'yith-wcmc' ),
 			'id' => 'yith_wcmc_subscription_checkbox_label',
-			'default' => __( 'Subscribe to our wonderful newsletter', 'yith-wcmc' ),
+			'default' => __( 'Subscribe to our cool newsletter', 'yith-wcmc' ),
 			'css' => 'min-width:300px;'
 		),
 
 		'checkout-checkbox-position' => array(
-			'title' => __( '"Newsletter subscription" position', 'yith-wcmc' ),
+			'title' => __( 'Position for "Newsletter subscription"', 'yith-wcmc' ),
 			'type' => 'select',
-			'desc' => __( 'Select where you want to place the "Newsletter subscription" checkbox within the page', 'yith-wcmc' ),
+			'desc' => __( 'Select position for "Newsletter subscription" checkbox in the page', 'yith-wcmc' ),
 			'id' => 'yith_wcmc_subscription_checkbox_position',
 			'options' => array(
 				'above_customer' => __( 'Above customer details', 'yith-wcmc' ),
 				'below_customer' => __( 'Below customer details', 'yith-wcmc' ),
-				'above_place_order' => __( 'Above place order button', 'yith-wcmc' ),
-				'below_place_order' => __( 'Below place order button', 'yith-wcmc' ),
-				'above_total' => __( 'Above review order total', 'yith-wcmc' ),
+				'above_place_order' => __( 'Above "Place order" button', 'yith-wcmc' ),
+				'below_place_order' => __( 'Below "Place order" button', 'yith-wcmc' ),
+				'above_total' => __( 'Above "Review order" total', 'yith-wcmc' ),
 				'above_billing' => __( 'Above billing details', 'yith-wcmc' ),
 				'below_billing' => __( 'Below billing details', 'yith-wcmc' ),
 				'above_shipping' => __( 'Above shipping details', 'yith-wcmc' ),
@@ -77,7 +77,7 @@ return apply_filters( 'yith_wcmc_checkout_options', array(
 			'title' => __( 'Show "Newsletter subscription" checked', 'yith-wcmc' ),
 			'type' => 'checkbox',
 			'id' => 'yith_wcmc_subscription_checkbox_default',
-			'desc' => __( 'When you check this option, the "Newsletter subscription" checkbox will be printed checked', 'yith-wcmc' ),
+			'desc' => __( 'When you check this option, "Newsletter subscription" checkbox will be printed as already checked', 'yith-wcmc' ),
 			'default' => ''
 		),
 
@@ -85,7 +85,7 @@ return apply_filters( 'yith_wcmc_checkout_options', array(
 			'title' => __( 'Email type', 'yith-wcmc' ),
 			'type' => 'select',
 			'id' => 'yith_wcmc_email_type',
-			'desc' => __( 'User preferential email type (HTML or plain text)', 'yith-wcmc' ),
+			'desc' => __( 'User\'s preferential email type (HTML or plain text)', 'yith-wcmc' ),
 			'options' => array(
 				'html' => __( 'HTML', 'yith-wcmc' ),
 				'text' => __( 'Text', 'yith-wcmc' )
@@ -94,10 +94,10 @@ return apply_filters( 'yith_wcmc_checkout_options', array(
 		),
 
 		'checkout-double-optin' => array(
-			'title' => __( 'Double Optin', 'yith-wcmc' ),
+			'title' => __( 'Double Opt-in', 'yith-wcmc' ),
 			'type' => 'checkbox',
 			'id' => 'yith_wcmc_double_optin',
-			'desc' => __( 'When you check this option, Mailchimp will send a confirmation email before subscribing the user', 'yith-wcmc' ),
+			'desc' => __( 'When you check this option, MailChimp will send a confirmation email before adding the user to the list', 'yith-wcmc' ),
 			'default' => ''
 		),
 
@@ -105,7 +105,7 @@ return apply_filters( 'yith_wcmc_checkout_options', array(
 			'title' => __( 'Update existing', 'yith-wcmc' ),
 			'type' => 'checkbox',
 			'id' => 'yith_wcmc_update_existing',
-			'desc' => __( 'When you check this option, existing users will be updated, and Mailchimp servers will not show an error', 'yith-wcmc' ),
+			'desc' => __( 'When you check this option, existing users will be updated and MailChimp servers will not show errors', 'yith-wcmc' ),
 			'default' => ''
 		),
 
@@ -113,7 +113,7 @@ return apply_filters( 'yith_wcmc_checkout_options', array(
 			'title' => __( 'Send welcome email', 'yith-wcmc' ),
 			'type' => 'checkbox',
 			'id' => 'yith_wcmc_send_welcome',
-			'desc' => __( 'Send a welcome email to the user (only available when double optin is disabled)', 'yith-wcmc' ),
+			'desc' => __( 'Send a welcome email to the user (only available when double opt-in is disabled)', 'yith-wcmc' ),
 			'default' => ''
 		),
 
@@ -130,15 +130,16 @@ return apply_filters( 'yith_wcmc_checkout_options', array(
 		),
 
 		'checkout-list' => array(
-			'title' => __( 'Users list', 'yith-wcmc' ),
+			'title' => __( 'MailChimp list', 'yith-wcmc' ),
 			'type' => 'select',
-			'desc' => __( 'Select a list where you want to add the user', 'yith-wcmc' ),
+			'desc' => __( 'Select a list for the new user', 'yith-wcmc' ),
 			'id' => 'yith_wcmc_mailchimp_list',
 			'options' => $list_options,
 			'custom_attributes' => empty( $list_options ) ? array(
 				'disabled' => 'disabled'
 			) : array(),
-			'css' => 'min-width:300px;'
+			'css' => 'min-width:300px;',
+			'class' => 'list-select'
 		),
 
 		'checkout-list-basic-options-end' => array(

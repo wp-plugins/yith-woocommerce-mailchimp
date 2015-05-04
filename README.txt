@@ -3,11 +3,10 @@
 Contributors: yithemes
 Tags: mailchimp, woocommerce, checkout, themes, yit, e-commerce, shop, newsletter, subscribe, subscription, marketing, signup, order, email, mailchimp for wordpress, mailchimp for wp, mailchimp signup, mailchimp subscribe, newsletter, newsletter subscribe, newsletter checkbox, double optin
 Requires at least: 3.5.1
-Tested up to: 4.1.1
-Stable tag: 1.0.1
+Tested up to: 4.2.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Documentation: http://yithemes.com/docs-plugins/yith-woocommerce-mailchimp
 
 Integrate MailChimp into your e-commerce shop to manage users' subscription directly from your store.
 WooCommerce 2.3.x compatible.
@@ -57,6 +56,12 @@ Try to press the "Update lists" button near the select
 
 == Changelog ==
 
+= 1.0.2 =
+
+* Added: WP 4.2.1 support
+* Fixed: "Plugin Documentation" appearing on all plugins
+* Fixed: various minor bug
+
 = 1.0.1 =
 
 * Added: delete key-related options/transient when key changed
@@ -79,10 +84,14 @@ If you have suggestions about how to improve YITH WooCommerce Mailchimp, you can
 If you have created your own language pack, or have an update for an existing one, you can send [gettext PO and MO file](http://codex.wordpress.org/Translating_WordPress "Translating WordPress")
 [use](http://yithemes.com/contact/ "Your Inspiration Themes") so we can bundle it into YITH WooCommerce Mailchimp Languages.
 
+== Documentation ==
+
+Full documentation is available [here](http://yithemes.com/docs-plugins/yith-woocommerce-mailchimp).
+
 == Upgrade notice ==
 
-= 1.0.1 =
+= 1.0.2 =
 
-* Added: delete key-related options/transient when key changed
-* Tweak: string revision
+* Added: WP 4.2.1 support
+* Fixed: "Plugin Documentation" appearing on all plugins
 * Fixed: various minor bug

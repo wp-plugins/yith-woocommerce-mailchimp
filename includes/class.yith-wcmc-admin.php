@@ -228,8 +228,10 @@ if ( ! class_exists( 'YITH_WCMC_Admin' ) ) {
 		 * @since 1.0.0
 		 */
 		public function add_plugin_meta( $plugin_meta, $plugin_file ){
-			// documentation link
-			$plugin_meta['documentation'] = '<a target="_blank" href="' . $this->doc_url . '">' . __( 'Plugin Documentation', 'yit' ) . '</a>';
+			if ( $plugin_file == plugin_basename( YITH_WCMC_DIR . 'init.php' ) ) {
+				// documentation link
+				$plugin_meta['documentation'] = '<a target="_blank" href="' . $this->doc_url . '">' . __( 'Plugin Documentation', 'yith-wcmc' ) . '</a>';
+			}
 
 			return $plugin_meta;
 		}

@@ -3,7 +3,7 @@
  * Plugin Name: YITH WooCommerce Mailchimp
  * Plugin URI: http://yithemes.com/themes/plugins/yith-woocommerce-mailchimp/
  * Description: YITH WooCommerce Mailchimp allows you to integrate the most popular newsletter campaign manager on your ecommerce.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Yithemes
  * Author URI: http://yithemes.com/
  * Text Domain: yith-wcmc

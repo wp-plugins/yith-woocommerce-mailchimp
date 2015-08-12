@@ -2,9 +2,9 @@
 
 Contributors: yithemes
 Tags: mailchimp, woocommerce, checkout, themes, yit, e-commerce, shop, newsletter, subscribe, subscription, marketing, signup, order, email, mailchimp for wordpress, mailchimp for wp, mailchimp signup, mailchimp subscribe, newsletter, newsletter subscribe, newsletter checkbox, double optin
-Requires at least: 3.5.1
-Tested up to: 4.2.1
-Stable tag: 1.0.2
+Requires at least: 4.0
+Tested up to: 4.2.4
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,7 +28,7 @@ Get perfect integration of MailChimp into your e-commerce. An opportunity to let
 2. Upload the plugin folder into the `wp-content/plugins/` directory of your WordPress site.
 3. Activate `YITH WooCommerce Mailchimp` from Plugins page
 
-YITH WooCommerce Authorize.net Payment Gateway will add a new submenu called "Mailchimp" under "YIT Plugins" menu. Here you are able to configure all the plugin settings.
+YITH WooCommerce Mailchimp will add a new submenu called "Mailchimp" under "YIT Plugins" menu. Here you are able to configure all the plugin settings.
 
 == Frequently Asked Questions ==
 
@@ -55,6 +55,11 @@ Try to press the "Update lists" button near the select
 3. Checkout page with "Newsletter subscription" checkbox
 
 == Changelog ==
+
+= 1.0.3 =
+
+* Added: Compatibility with WC 2.4.2
+* Tweak: Updated internal plugin-fw
 
 = 1.0.2 =
 
@@ -90,8 +95,7 @@ Full documentation is available [here](http://yithemes.com/docs-plugins/yith-woo
 
 == Upgrade notice ==
 
-= 1.0.2 =
+= 1.0.3 =
 
-* Added: WP 4.2.1 support
-* Fixed: "Plugin Documentation" appearing on all plugins
-* Fixed: various minor bug
+* Added: Compatibility with WC 2.4.2
+* Tweak: Updated internal plugin-fw
